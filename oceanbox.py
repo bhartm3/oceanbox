@@ -21,7 +21,7 @@ last_motion = time.time()
 
 
 def motion_detected() -> bool:
-    return GPIO.input(PIR_PIN)
+    return GPIO.input(PIR_PIN) and int(time.time()) - last_motion < 12
 
 
 def play_sound():
