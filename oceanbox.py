@@ -20,8 +20,6 @@ print("Ready")
 last_motion = 0
 
 
-def MOTION(PIR_PIN):
-  print("Motion Callback")
 
 def motion_detected() -> bool:
     return GPIO.input(PIR_PIN)
@@ -38,7 +36,6 @@ def stop_sound():
 
 
 while True:
-    GPIO.add_event_detect(PIR_PIN, GPIO.RISING, callback=MOTION)
 
     if int(time.time()) - last_motion > INACTIVITY_SECONDS_STOP_SOUND and pygame.mixer.music.get_busy():
         stop_sound()
@@ -52,4 +49,4 @@ while True:
                 last_motion = int(time.time())
                 play_sound()
 
-    time.sleep(1)
+    time.sleep(0.8)
