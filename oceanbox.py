@@ -44,7 +44,7 @@ while True:
         print("Motion Detected at time: {}".format(int(time.time())))
         prev_motion = last_motion
         last_motion = time.time()
-        if last_motion - prev_motion < 12:
+        if last_motion - prev_motion < 12:  # avoiding single false positive sensor readouts
             if not pygame.mixer.music.get_busy():
                 last_motion = int(time.time())
                 play_sound()
