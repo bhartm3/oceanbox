@@ -18,10 +18,10 @@ time.sleep(2)
 print("Ready")
 
 last_motion = time.time()
-
+hot = 0
 
 def motion_detected() -> bool:
-    return GPIO.input(PIR_PIN) and int(time.time()) - last_motion < 12
+    return GPIO.input(PIR_PIN)
 
 
 def play_sound():
@@ -39,9 +39,14 @@ while True:
         stop_sound()
 
     if motion_detected():
-        print("Motion Detected at time: {}".format(int(time.time())))
-        if not pygame.mixer.music.get_busy():
-            last_motion = int(time.time())
-            play_sound()
+        last_motion = time.time()
+        if hot == 0:
+            hot = 1
+        else:
+            print("Motion Detected at time: {}".format(int(time.time())))
+            if not pygame.mixer.music.get_busy():
+                last_motion = int(time.time())
+                hot = 0
+                play_sound()
 
     time.sleep(1)
