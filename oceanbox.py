@@ -11,7 +11,7 @@ GPIO.setup(PIR_PIN, GPIO.IN)
 SOUND_FILE = "/home/pi/waves.mp3"
 pygame.mixer.music.load(SOUND_FILE)
 
-INACTIVITY_SECONDS_STOP_SOUND = 20
+INACTIVITY_SECONDS_STOP_SOUND = 30
 
 print("Starting oceanbox (CTRL+C to exit)")
 time.sleep(2)
@@ -41,6 +41,7 @@ while True:
     if motion_detected():
         print("Motion Detected at time: {}".format(int(time.time())))
         if not pygame.mixer.music.get_busy():
-            play_sound()
             last_motion = int(time.time())
+            play_sound()
+
     time.sleep(1)
