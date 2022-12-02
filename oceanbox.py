@@ -49,4 +49,4 @@ while True:
                 last_motion = int(time.time())
                 play_sound()
 
-    time.sleep(0.8)
+    time.sleep(1)
