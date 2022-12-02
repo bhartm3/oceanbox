@@ -12,7 +12,7 @@ SOUND_FILE = "/home/pi/waves.mp3"
 pygame.mixer.music.load(SOUND_FILE)
 
 INACTIVITY_SECONDS_STOP_SOUND = 10
-MIN_PLAY_SOUND_SECONDS = 90
+MIN_PLAY_SOUND_SECONDS = 120
 
 print("Starting oceanbox (CTRL+C to exit)")
 time.sleep(2)
