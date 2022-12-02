@@ -11,7 +11,7 @@ GPIO.setup(PIR_PIN, GPIO.IN)
 SOUND_FILE = "/home/pi/waves.mp3"
 pygame.mixer.music.load(SOUND_FILE)
 
-INACTIVITY_SECONDS_STOP_SOUND = 60
+INACTIVITY_SECONDS_STOP_SOUND = 120
 
 print("Starting oceanbox (CTRL+C to exit)")
 time.sleep(2)
