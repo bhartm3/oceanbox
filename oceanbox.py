@@ -8,7 +8,7 @@ GPIO.setmode(GPIO.BCM)
 PIR_PIN = 21
 GPIO.setup(PIR_PIN, GPIO.IN)
 
-SOUND_FILE = "/home/pi/sound.wav"
+SOUND_FILE = "/home/pi/waves.mp3"
 pygame.mixer.music.load(SOUND_FILE)
 
 INACTIVITY_SECONDS_STOP_SOUND = 20
@@ -35,7 +35,7 @@ def stop_sound():
 
 
 while True:
-    if int(time.time()) - last_motion > INACTIVITY_SECONDS_STOP_SOUND:
+    if int(time.time()) - last_motion > INACTIVITY_SECONDS_STOP_SOUND and pygame.mixer.music.get_busy():
         stop_sound()
 
     if motion_detected():
