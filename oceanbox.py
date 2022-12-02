@@ -2,8 +2,6 @@ import pygame
 import RPi.GPIO as GPIO
 import time
 
-time.sleep(10)
-
 pygame.mixer.init()
 GPIO.setmode(GPIO.BCM)
 
@@ -33,7 +31,7 @@ def play_sound():
 
 def stop_sound():
     print("stop music")
-    pygame.mixer.music.fadeout()
+    pygame.mixer.music.stop()
 
 
 while True:
