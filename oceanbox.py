@@ -2,6 +2,8 @@ import pygame
 import RPi.GPIO as GPIO
 import time
 
+time.sleep(10)
+
 pygame.mixer.init()
 GPIO.setmode(GPIO.BCM)
 
