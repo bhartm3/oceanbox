@@ -17,8 +17,9 @@ print("Starting oceanbox (CTRL+C to exit)")
 time.sleep(2)
 print("Ready")
 
-last_motion = time.time()
+last_motion = time.time() - 1000
 hot = 0
+
 
 def motion_detected() -> bool:
     return GPIO.input(PIR_PIN)
