@@ -17,7 +17,7 @@ print("Starting oceanbox (CTRL+C to exit)")
 time.sleep(2)
 print("Ready")
 
-last_motion = time.time() - 1000
+last_motion = 0
 hot = 0
 
 
@@ -43,7 +43,7 @@ while True:
         print("Motion Detected at time: {}".format(int(time.time())))
         prev_motion = last_motion
         last_motion = time.time()
-        if prev_motion - last_motion < 12:
+        if last_motion - prev_motion < 12:
             if not pygame.mixer.music.get_busy():
                 last_motion = int(time.time())
                 hot = 0
